@@ -1,4 +1,3 @@
-library(corrplot)
 library(dplyr)
 library(gplots)  # heatmap
 
