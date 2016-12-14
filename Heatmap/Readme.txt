@@ -6,4 +6,4 @@ L'exemple choisi porte sur un tableau de données typo-chronologique (individus 
 Données : la céramique du site des "Halettes" à Compiègne (Oise). Le tableau de données est extrait de Desachy 2004, p. 44
 
 Réf : 
-Desachy 2004 : Desachy B., Le sériographe EPPM : un outils informatisé de sériation graphique pour les tableaux de comptage, Revue archéologique de Picardie, n°3/4, Céramiques domestiques et terres cuites architecturales. Actes des journées d'étude d'Amiens, pp. 39-56
+Desachy 2004 : Desachy B., Le sériographe EPPM : un outils informatisé de sériation graphique pour les tableaux de comptage, Revue archéologique de Picardie, n°3/4, Céramiques domestiques et terres cuites architecturales. Actes des journées d'étude d'Amiens, pp. 39-56, URL : http://www.persee.fr/docAsPDF/pica_0752-5656_2004_num_3_1_2396.pdf
