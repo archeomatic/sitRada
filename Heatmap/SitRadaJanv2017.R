@@ -1,6 +1,3 @@
-library(dplyr)
-library(gplots)  # heatmap
-
 ### Import données
 Compiegne <- read.csv(url("https://raw.githubusercontent.com/JGravier/sitRada/master/Heatmap/Compiegne.csv"),
                        header = TRUE,
@@ -15,6 +12,7 @@ head(CompM)
 ### Heatmap sur les données brutes
 my_palette2 <- colorRampPalette(c("#018571", "#f5f5f5", "#a6611a"))(n = 50)  # création de sa propre palette de couleur
 
+library(gplots)  # heatmap
 heatmap.2(CompM, Rowv = FALSE, Colv = FALSE,
           dendrogram = 'none',
           col = my_palette2,
@@ -62,6 +60,7 @@ plot(as.dendrogram(CAH))
 par(mfrow = c(1,2))
 plot(thc, hang = -1, cex = 0.6)
 plot(as.dendrogram(CAH))
+par(mfrow=c(1,1))
 # Notez bien des petites différences de clusters... en toute logique, car la méthode diffère !
 
 
@@ -149,3 +148,101 @@ heatmap.2(TEPourc, Rowv = FALSE,
           col = my_palette2,
           denscol = "black",
           dendrogram = 'column')
+
+### Heatmap sur la matrice de corrélation
+cor <- cor(CompM)  # création de la matrice de corrélation (par défaut, méthode Pearson)
+# on regarde donc ici les corrélations de types de céramiques
+
+## Visualisation
+library(corrplot)
+corrplot(cor, type="upper",  # on visualise de manière triangulaire en haut à droite
+         order="hclust",  # méthode de réordonnancement selon hclust : hierarchical clustering
+         col = my_palette2,
+         tl.col="black", tl.srt=20)
+# on a ici l'impression que le type de céramique A est corrélé négativement de manière significative
+# avec les types F, J, I, etc. Mais est-ce bien le cas ?! Regardons les types de céramiques deux à deux
+# sous la forme de nuages de points (scatterplot)
+
+## Visualisation des nuages de points
+pairs(CompM)
+# la visualisation n'est pas extrêmement claire... On peut l'améliorer !
+
+panel.cor <- function(x, y, digits = 2, cex.cor, ...) # selon http://www.r-bloggers.com/scatter-plot-matrices-in-r/
+{
+  usr <- par("usr"); on.exit(par(usr))
+  par(usr = c(0, 1, 0, 1))
+  # calcul coefficient de corrélation
+  r <- cor(x, y)
+  txt <- format(c(r, 0.123456789), digits = digits)[1]
+  txt <- paste("r= ", txt, sep = "")
+  text(0.5, 0.7, txt)
+  
+  # calcul p-value
+  p <- cor.test(x, y)$p.value
+  txt2 <- format(c(p, 0.123456789), digits = digits)[1]
+  txt2 <- paste("p= ", txt2, sep = "")
+  if(p<0.01) txt2 <- paste("p= ", "<0.01", sep = "")
+  text(0.5, 0.5, txt2)
+  
+  # calcul r² : ajout perso, car très utile pour nos données en SHS !
+  rdeux <- lm(formula = x ~ y)
+  rdeux <- summary(rdeux)$r.squared
+  txt <- format(c(rdeux, 0.123456789), digits = digits)[1]
+  txt <- paste("r²= ", txt, sep = "")
+  text(0.5, 0.3, txt)
+}
+
+pairs(CompM, upper.panel = panel.cor)
+# Au final, on note clairement qu'il n'y a pas de corrélations entre le type A et les autres...
+# ...car il est toujours nécessaire de se méfier des coefficients de corrélation sans avoir vu les nuages de points.
+# On peut également se demander s'il existe des corrélations entre les périodes
+
+## Visualisation des nuages de points période à période
+pairs(tCompM, upper.panel = panel.cor)
+# le type A a des valeurs extrêmes, donc le coefficient de corrélation est très "sensible" à ce type.
+# Deux solutions possibles : 1) virer la valeur extrême, ou 2) transformer les valeurs en log10 et faire un ajustement puissance
+
+
+## Solution 1) : extraire le type A de l'ensemble étudié
+CompMSansA <- t(CompM[,2:16])
+head(CompMSansA)
+
+pairs(CompMSansA, upper.panel = panel.cor)
+# ce n'est pas extrêmement satisfaisant car il existe toujours de valeurs extrêmes pour d'autres types de céramiques
+
+
+## Solution 2) : transformer les valeurs en log10 et faire un ajustement puissance
+panel.corlog10 <- function(x, y, digits = 2, cex.cor, ...) # selon http://www.r-bloggers.com/scatter-plot-matrices-in-r/
+{
+  usr <- par("usr"); on.exit(par(usr))
+  par(usr = c(0, 1, 0, 1))
+  # calcul coefficient de corrélation
+  r <- cor(log10(x), log10(y))
+  txt <- format(c(r, 0.123456789), digits = digits)[1]
+  txt <- paste("r= ", txt, sep = "")
+  text(0.5, 0.7, txt)
+  
+  # calcul p-value
+  p <- cor.test(log10(x), log10(y))$p.value
+  txt2 <- format(c(p, 0.123456789), digits = digits)[1]
+  txt2 <- paste("p= ", txt2, sep = "")
+  if(p<0.01) txt2 <- paste("p= ", "<0.01", sep = "")
+  text(0.5, 0.5, txt2)
+  
+  # calcul r² : ajout perso, car très utile pour nos données en SHS !
+  rdeux <- lm(formula = log10(x) ~ log10(y))
+  rdeux <- summary(rdeux)$r.squared
+  txt <- format(c(rdeux, 0.123456789), digits = digits)[1]
+  txt <- paste("r²= ", txt, sep = "")
+  text(0.5, 0.3, txt)
+}
+
+pairs(log10(tCompM), upper.panel = panel.corlog10)
+# cela pose problème, car log10(0) est indéfini !!
+# Ainsi, une solution est de transformer les 0 en 2, cela ne changera pas fondamentalement les résultats, 
+# mais il est nécessaire de bien le préciser :)
+
+TableSansNul <- ifelse(tCompM == 0, 2, tCompM)
+View(TableSansNul)
+
+pairs(log10(TableSansNul), upper.panel = panel.corlog10)
