@@ -60,6 +60,7 @@ plot(as.dendrogram(CAH))
 par(mfrow = c(1,2))
 plot(thc, hang = -1, cex = 0.6)
 plot(as.dendrogram(CAH))
+par(mfrow=c(1,1))
 # Notez bien des petites différences de clusters... en toute logique, car la méthode diffère !
 
 
