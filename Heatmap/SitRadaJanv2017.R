@@ -211,7 +211,7 @@ pairs(CompMSansA, upper.panel = panel.cor)
 
 
 ## Solution 2) : transformer les valeurs en log10 et faire un ajustement puissance
-panel.corlog10 <- function(x, y, digits = 2, cex.cor, ...) # selon http://www.r-bloggers.com/scatter-plot-matrices-in-r/
+panel.corlog10 <- function(x, y, digits = 2, cex.cor, ...)
 {
   usr <- par("usr"); on.exit(par(usr))
   par(usr = c(0, 1, 0, 1))
@@ -228,7 +228,7 @@ panel.corlog10 <- function(x, y, digits = 2, cex.cor, ...) # selon http://www.r-
   if(p<0.01) txt2 <- paste("p= ", "<0.01", sep = "")
   text(0.5, 0.5, txt2)
   
-  # calcul r² : ajout perso, car très utile pour nos données en SHS !
+  # calcul r²
   rdeux <- lm(formula = log10(x) ~ log10(y))
   rdeux <- summary(rdeux)$r.squared
   txt <- format(c(rdeux, 0.123456789), digits = digits)[1]
