@@ -1,5 +1,3 @@
-library(dplyr)
-library(gplots)  # heatmap
 
 ### Import données
 Compiegne <- read.csv(url("https://raw.githubusercontent.com/JGravier/sitRada/master/Heatmap/Compiegne.csv"),
@@ -15,6 +13,7 @@ head(CompM)
 ### Heatmap sur les données brutes
 my_palette2 <- colorRampPalette(c("#018571", "#f5f5f5", "#a6611a"))(n = 50)  # création de sa propre palette de couleur
 
+library(gplots)  # heatmap
 heatmap.2(CompM, Rowv = FALSE, Colv = FALSE,
           dendrogram = 'none',
           col = my_palette2,
