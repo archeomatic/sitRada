@@ -197,7 +197,7 @@ pairs(CompM, upper.panel = panel.cor)
 # On peut également se demander s'il existe des corrélations entre les périodes
 
 ## Visualisation des nuages de points période à période
-pairs(t(CompM), upper.panel = panel.cor)
+pairs(tCompM, upper.panel = panel.cor)
 # le type A a des valeurs extrêmes, donc le coefficient de corrélation est très "sensible" à ce type.
 # Deux solutions possibles : 1) virer la valeur extrême, ou 2) transformer les valeurs en log10 et faire un ajustement puissance
 
@@ -211,7 +211,7 @@ pairs(CompMSansA, upper.panel = panel.cor)
 
 
 ## Solution 2) : transformer les valeurs en log10 et faire un ajustement puissance
-panel.corlog10 <- function(x, y, digits = 2, cex.cor, ...)
+panel.corlog10 <- function(x, y, digits = 2, cex.cor, ...) # selon http://www.r-bloggers.com/scatter-plot-matrices-in-r/
 {
   usr <- par("usr"); on.exit(par(usr))
   par(usr = c(0, 1, 0, 1))
@@ -228,7 +228,7 @@ panel.corlog10 <- function(x, y, digits = 2, cex.cor, ...)
   if(p<0.01) txt2 <- paste("p= ", "<0.01", sep = "")
   text(0.5, 0.5, txt2)
   
-  # calcul r²
+  # calcul r² : ajout perso, car très utile pour nos données en SHS !
   rdeux <- lm(formula = log10(x) ~ log10(y))
   rdeux <- summary(rdeux)$r.squared
   txt <- format(c(rdeux, 0.123456789), digits = digits)[1]
@@ -236,13 +236,12 @@ panel.corlog10 <- function(x, y, digits = 2, cex.cor, ...)
   text(0.5, 0.3, txt)
 }
 
-pairs(log10(t(CompM)), upper.panel = panel.corlog10)
+pairs(log10(tCompM), upper.panel = panel.corlog10)
 # cela pose problème, car log10(0) est indéfini !!
 # Ainsi, une solution est de transformer les 0 en 2, cela ne changera pas fondamentalement les résultats, 
 # mais il est nécessaire de bien le préciser :)
 
-TableSansNul <- ifelse(CompM == 0, 2, CompM)
-TableSansNul <- t(TableSansNul)
+TableSansNul <- ifelse(tCompM == 0, 2, tCompM)
 View(TableSansNul)
 
 pairs(log10(TableSansNul), upper.panel = panel.corlog10)
