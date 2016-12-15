@@ -149,3 +149,48 @@ heatmap.2(TEPourc, Rowv = FALSE,
           col = my_palette2,
           denscol = "black",
           dendrogram = 'column')
+
+### Heatmap sur la matrice de corrélation
+cor <- cor(CompM)  # création de la matrice de corrélation (par défaut, méthode Pearson)
+# on regarde donc ici les corrélations de types de céramiques
+
+## Visualisation
+library(corrplot)
+corrplot(cor, type="upper",  # on visualise de manière triangulaire en haut à droite
+         order="hclust",  # méthode de réordonnancement selon hclust : hierarchical clustering
+         col = my_palette2,
+         tl.col="black", tl.srt=20)
+# on a ici l'impression que le type de céramique A est corrélé négativement de manière significative
+# avec les types F, J, I, etc. Mais est-ce bien le cas ?! Regardons les types de céramiques deux à deux
+# sous la forme de nuages de points (scatterplot)
+
+## Visualisation des nuages de points
+pairs(CompM)
+# la visualisation n'est pas extrêmement claire... On peut l'améliorer !
+
+panel.cor <- function(x, y, digits = 2, cex.cor, ...) # selon http://www.r-bloggers.com/scatter-plot-matrices-in-r/
+{
+  usr <- par("usr"); on.exit(par(usr))
+  par(usr = c(0, 1, 0, 1))
+  # calcul coefficient de corrélation
+  r <- cor(x, y)
+  txt <- format(c(r, 0.123456789), digits = digits)[1]
+  txt <- paste("r= ", txt, sep = "")
+  text(0.5, 0.7, txt)
+  
+  # calcul p-value
+  p <- cor.test(x, y)$p.value
+  txt2 <- format(c(p, 0.123456789), digits = digits)[1]
+  txt2 <- paste("p= ", txt2, sep = "")
+  if(p<0.01) txt2 <- paste("p= ", "<0.01", sep = "")
+  text(0.5, 0.5, txt2)
+  
+  # calcul r² : ajout perso, car très utile pour nos données en SHS !
+  rdeux <- lm(formula = x ~ y)
+  rdeux <- summary(rdeux)$r.squared
+  txt <- format(c(rdeux, 0.123456789), digits = digits)[1]
+  txt <- paste("r²= ", txt, sep = "")
+  text(0.5, 0.3, txt)
+}
+
+pairs(CompM, upper.panel = panel.cor)
