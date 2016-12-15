@@ -1,4 +1,3 @@
-
 ### Import données
 Compiegne <- read.csv(url("https://raw.githubusercontent.com/JGravier/sitRada/master/Heatmap/Compiegne.csv"),
                        header = TRUE,
