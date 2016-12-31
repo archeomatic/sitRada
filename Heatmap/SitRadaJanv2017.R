@@ -10,24 +10,27 @@ head(CompM)
 
 
 ### Heatmap sur les données brutes
+my_palette <- colorRampPalette(c("#f7f7f7", "#bdbdbd", "#636363"))(n=50)
 my_palette2 <- colorRampPalette(c("#018571", "#f5f5f5", "#a6611a"))(n = 50)  # création de sa propre palette de couleur
 
 library(gplots)  # heatmap
 heatmap.2(CompM, Rowv = FALSE, Colv = FALSE,
           dendrogram = 'none',
-          col = my_palette2,
-          denscol = "black")
+          col = my_palette,
+          denscol = "black",
+          trace = "none")
 
 ## Données brutes : ressemblances
 heatmap.2(CompM, Rowv = FALSE,  # ne change pas les lignes (les périodes d'occupation du site archéologique)
-          dendrogram = 'column',  # réorganisation des colonnes (types de céramiques)
-          col = my_palette2,
-          denscol = "black")
+          dendrogram = 'column',  # réorganisation des colonnes (types de céramiques) sur les dist + visu dendrogramme
+          col = my_palette,
+          denscol = "black",
+          trace = "none")
 # Par défaut, la distance prise en compte par la fonction heatmap.2
 # est une distance euclidienne ; on peut donc la changer (voir fonction dist)
 # et, bien entendu, en créer une !
 
-## Créer sa fonction de distance khi-deux
+## Créer sa fonction de distance du khi-deux
 library(ade4)
 distChi2 <- function(x)
 {
@@ -37,9 +40,9 @@ distChi2 <- function(x)
 
 heatmap.2(CompM, Rowv = FALSE,
           dendrogram = 'column',
-          col = my_palette2,
-          denscol = "black",
-          distfun = function(x) as.dist(distChi2(x))) # distance khi-deux
+          col = my_palette,
+          denscol = "black", trace = "none",
+          distfun = function(x) as.dist(distChi2(x))) # distance du khi-deux
 # Plus intéressant pour repérer des groupes mais la visualisation
 # en heatmap est inutile... Autant faire simplement un dendrogramme !
 
@@ -73,12 +76,12 @@ head(StandComp)
 heatmap.2(StandComp, Rowv = FALSE, Colv = FALSE,
           dendrogram = 'none',
           col = my_palette2,
-          denscol = "black")
+          denscol = "black", trace = "none")
 
 heatmap.2(StandComp, Rowv = FALSE,
           dendrogram = 'column',
           col = my_palette2,
-          denscol = "black")
+          denscol = "black", trace = "none")
 
 
 ### Écarts à l'indépendance
@@ -104,12 +107,12 @@ head(TableEcart)
 heatmap.2(TableEcart, Rowv = FALSE, Colv = FALSE,
           col = my_palette2,
           denscol = "black",
-          dendrogram = 'none')
+          dendrogram = 'none', trace = "none")
 
 heatmap.2(TableEcart, Rowv = FALSE,
           col = my_palette2,
           denscol = "black",
-          dendrogram = 'column')
+          dendrogram = 'column', trace = "none")
 # Pour lire pluf facilement l'ensemble, 
 # on peut regarder les écarts transformés en pourcentage
 
@@ -142,12 +145,13 @@ head(TEPourc)
 heatmap.2(TEPourc, Rowv = FALSE, Colv = FALSE,
           col = my_palette2,
           denscol = "black",
-          dendrogram = 'none')
+          dendrogram = 'none', trace = "none")
 
 heatmap.2(TEPourc, Rowv = FALSE,
           col = my_palette2,
           denscol = "black",
-          dendrogram = 'column')
+          dendrogram = 'column', trace = "none")
+
 
 ### Heatmap sur la matrice de corrélation
 cor <- cor(CompM)  # création de la matrice de corrélation (par défaut, méthode Pearson)
@@ -212,7 +216,7 @@ pairs(CompMSansA, upper.panel = panel.cor)
 
 
 ## Solution 2) : transformer les valeurs en log10 et faire un ajustement puissance
-panel.corlog10 <- function(x, y, digits = 2, cex.cor, ...) # selon http://www.r-bloggers.com/scatter-plot-matrices-in-r/
+panel.corlog10 <- function(x, y, digits = 2, cex.cor, ...)
 {
   usr <- par("usr"); on.exit(par(usr))
   par(usr = c(0, 1, 0, 1))
