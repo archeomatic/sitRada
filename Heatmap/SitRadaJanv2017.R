@@ -1,7 +1,8 @@
 ### Import données
 Compiegne <- read.csv(url("https://raw.githubusercontent.com/JGravier/sitRada/master/Heatmap/Compiegne.csv"),
                        header = TRUE,
-                       sep = ";")
+                       sep = ";",
+                      stringsAsFactors = FALSE)
 View(Compiegne)
 row.names(Compiegne) <- Compiegne$Periode
 
@@ -202,6 +203,10 @@ pairs(CompM, upper.panel = panel.cor)
 # On peut également se demander s'il existe des corrélations entre les périodes
 
 ## Visualisation des nuages de points période à période
+tcor <- cor(t(CompM))
+corrplot(tcor, type="upper",
+         col = my_palette2,
+         tl.col="black", tl.srt=20)
 pairs(tCompM, upper.panel = panel.cor)
 # le type A a des valeurs extrêmes, donc le coefficient de corrélation est très "sensible" à ce type.
 # Deux solutions possibles : 1) virer la valeur extrême, ou 2) transformer les valeurs en log10 et faire un ajustement puissance
@@ -245,8 +250,12 @@ pairs(log10(tCompM), upper.panel = panel.corlog10)
 # cela pose problème, car log10(0) est indéfini !!
 # Ainsi, une solution est de transformer les 0 en 2, cela ne changera pas fondamentalement les résultats, 
 # mais il est nécessaire de bien le préciser :)
-
+View(tCompM)
 TableSansNul <- ifelse(tCompM == 0, 2, tCompM)
 View(TableSansNul)
 
 pairs(log10(TableSansNul), upper.panel = panel.corlog10)
+corlog10 <- cor(log10(TableSansNul))
+corrplot(corlog10, type="upper",
+         col = my_palette2,
+         tl.col="black", tl.srt=20)
