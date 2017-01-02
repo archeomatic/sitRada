@@ -1,5 +1,4 @@
 # Présentation en janvier 2017 dans l'atelier SITRADA
-# Travail en cours :)
 
 Objectif : créer des heatmap pas à pas avec R afin de s'approprier ses données de manière élémentaire.
 L'exemple choisi porte sur un tableau de données typo-chronologique (individus = contextes archéologiques et variables = type d'objet). Il s'agit ici d'un tableau de contingence.
