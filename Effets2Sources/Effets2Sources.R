@@ -56,7 +56,7 @@ FrceVar <- function(x){
 # Note : margin = 1 car on s'intéresse aux fréquences des variables par ligne (période chronologique)
 
 PCRM %>%
-  FrceVar() %>%  # mise en fréquence (Fréquence des variables)
+  FrceVar() %>%  # mise en fréquence (= fréquence des variables)
   Standar() %>%  # standardisation de le tableau en pourcentage
   heatmap.2(Rowv = F,
             dendrogram = "column",
@@ -87,7 +87,7 @@ NoyonM %>%
             trace = "none")
 
 ## Visualisation des écarts à l'indépendance en pourcentage (souvent appelés en archéologie "écarts au pourcentage moyen")
-# Tableau des écarts à l'indépendance (générique)
+# Tableau des écarts à l'indépendance (fonction générique)
 TabEcart <- function(x){
   ni. <- margin.table(x, margin = 1)  # totaux des lignes i
   nj. <- margin.table(x, margin = 2)  # totaux des colonnes j
@@ -99,7 +99,7 @@ TabEcart <- function(x){
 
 ## Visualisation des écarts au pourcentage moyen
 NoyonM %>%
-  FrceVar() %>%  # mise en pourcentage (Fréquence des types de céramique)
+  FrceVar() %>%  # mise en pourcentage (= fréquence des variables)
   TabEcart() %>%  # écarts à l'indépendance sur le tableau en pourcentage
   heatmap.2(Rowv = F,
             dendrogram = "column",
