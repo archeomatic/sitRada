@@ -3,7 +3,7 @@ https://cours.univ-paris1.fr/course/view.php?id=5437
 
 # Objectifs : 
 Créer des heatmap pas à pas avec R afin de s'approprier ses données de manière élémentaire.
-L'exemple choisi porte sur un tableau de données typo-chronologique (individus = contextes archéologiques et variables = type d'objet). Il s'agit ici d'un tableau de contingence.
+L'exemple choisi porte sur un tableau de données typo-chronologiques (individus = contextes archéologiques et variables = type d'objet). Il s'agit ici d'un tableau de contingence.
 
 # Données : 
 La céramique du site des "Halettes" à Compiègne (Oise). Le tableau de données est extrait de Desachy 2004, p. 44
