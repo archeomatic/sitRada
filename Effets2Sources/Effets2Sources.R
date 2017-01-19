@@ -10,10 +10,10 @@ Compiegne <- read.csv(url("https://raw.githubusercontent.com/JGravier/sitRada/ma
 View(Compiegne)
 row.names(Compiegne) <- Compiegne$Periode
 ## PCR Plaine de Troyes : 
-PCR <- read.csv("Data_PCR_Troyes.csv",
-                header = T,
+PCR <- read.csv(url("https://raw.githubusercontent.com/JGravier/sitRada/master/Effets2Sources/Data_PCR_Troyes.csv"),
+                header = TRUE,
                 sep = ";",
-                dec = ",",
+                dec =",",
                 stringsAsFactors = F)
 row.names(PCR) <- PCR$ID
 View(PCR)
@@ -107,6 +107,22 @@ NoyonM %>%
             denscol = "black",
             trace = "none")
 
+## Quelle différence entre écart à l'indé et standardisation ?
+# Peut se poser la question, au regard par ex des classes de
+# périodes qui vont ressortir
+blob <- NoyonM %>%
+  FrceVar() %>%
+  Standar() %>%
+  dist() %>%
+  hclust(method = "ward.D2")
+blob2 <- NoyonM %>%
+  FrceVar() %>%
+  TabEcart() %>%
+  dist() %>%
+  hclust(method = "ward.D2")
+plot(blob, hang = -1, cex = 0.6)
+plot(blob2, hang = -1, cex = 0.6)
+# il y en a (car beaucoup de lignes !), mais sont pas majeures
 
 ### Compiègne
 CompM <- as.matrix(Compiegne[,2:17])
@@ -128,3 +144,18 @@ CompM %>%
             col = my_palette,
             denscol = "black",
             trace = "none")
+
+## Quelle différence entre écart à l'indé et standardisation ?
+blobC <- CompM %>%
+  FrceVar() %>%
+  Standar() %>%
+  dist() %>%
+  hclust(method = "ward.D2")
+blobC2 <- CompM %>%
+  FrceVar() %>%
+  TabEcart() %>%
+  dist() %>%
+  hclust(method = "ward.D2")
+plot(blob, hang = -1, cex = 0.6)
+plot(blob2, hang = -1, cex = 0.6)
+# avec 5 périodes d'occupations, peu de différences
