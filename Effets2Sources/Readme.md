@@ -1,10 +1,10 @@
 # Présentation en janvier 2017 dans l'atelier SITRADA
+https://cours.univ-paris1.fr/course/view.php?id=5437
 
-Objectif : visualisation des effets de sources sur des tableaux typo-chronologiques grâce à l'utilisation d'une visualisation heatmap des données sous forme standardisée.
-Plusieurs jeux de données sont ici testés. Ce sont des tableaux typo-chronologiques, au sens où les individus (lignes) sont relatifs à des périodes chronologiques (phases de sites, phases d'occupation d'un territoire...).
+# Objectifs : 
+Visualisation des effets de sources sur des tableaux typo-chronologiques grâce à l'utilisation d'une visualisation heatmap des données sous forme standardisée. Plusieurs jeux de données sont ici testés. Ce sont des tableaux typo-chronologiques, au sens où les individus (lignes) sont relatifs à des périodes chronologiques (phases de sites, phases d'occupation d'un territoire...).
 
-
-Données :
+# Données :
 1) "Compiègne.csv" : La céramique du site des "Halettes" à Compiègne (Oise). Le tableau est extrait de Desachy 2004, p. 44
 - lignes : périodes d'occupation du site archéologique, construites selon les observations de terrain,
 - colonnes : types de céramique (16 types)
@@ -16,7 +16,10 @@ Données :
 - colonnes : fonctions urbaines définies selon l'adapatation du thésaurus du CNAU
 
 
-Réf : 
+# Références : 
 - Desachy 2004 : DESACHY B., « Le sériographe EPPM: un outil informatisé de sériation graphique pour tableaux de comptages », Rev. archéologique Picardie [en ligne], 3/4, pp. 39-56, URL : http://www.persee.fr/web/revues/home/prescript/article/pica_0752-5656_2004_num_3_1_2396
 - Gravier 2015 : GRAVIER J., « Recognizing Temporalities in Urban Units from a Functional Approach: Three Case Studies », in GILIGNY F., DJINDJIAN F., COSTA L., MOSCATI P., ROBERT S. (éd.), CAA 2014, 21st Century Archaeology, Concepts, Methods and Tools. Proceedings of the 42nd Annual Conference on Computer Applications and Quantitative Methods in Archaeology [en ligne], Oxford : Archaeopress, pp. 371-380, URL : http://www.archaeopress.com/ArchaeopressShop/Public/download.asp?id={5CACE285-4C48-41AE-809E-E98B65C9E4CD}
 - Sanson, Riquier 2016 : SANSON L., RIQUIER V., « Avancement de projet : La Plaine de Troyes : évolution d’un territoire rural des premiers agriculteurs au premier réseau villageois », in DESACHY B., GRAVIER J., HERMENAULT L. (éd.), Atelier SITraDA : compte rendu et programme des séances, année universitaire 2016-2017 (document provisoire) [en ligne], Paris,pp. 19-23, URL : https://cours.univ-paris1.fr/mod/resource/view.php?id=135887. 
+
+# Outils :
+Réalisation avec R version 3.3.2 -- "Sincere Pumpkin Patch" sur plateforme Windows 7 (64-bit)
