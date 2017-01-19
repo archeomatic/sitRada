@@ -5,7 +5,7 @@ https://cours.univ-paris1.fr/course/view.php?id=5437
 Visualisation des effets de sources sur des tableaux typo-chronologiques grâce à l'utilisation d'une visualisation heatmap des données sous forme standardisée. Plusieurs jeux de données sont ici testés. Ce sont des tableaux typo-chronologiques, au sens où les individus (lignes) sont relatifs à des périodes chronologiques (phases de sites, phases d'occupation d'un territoire...).
 
 # Données :
-1) "Compiègne.csv" : La céramique du site des "Halettes" à Compiègne (Oise). Le tableau est extrait de Desachy 2004, p. 44
+1) "Compiegne.csv" : La céramique du site des "Halettes" à Compiègne (Oise). Le tableau est extrait de Desachy 2004, p. 44
 - lignes : périodes d'occupation du site archéologique, construites selon les observations de terrain,
 - colonnes : types de céramique (16 types)
 
