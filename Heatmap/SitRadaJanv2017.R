@@ -50,7 +50,7 @@ heatmap.2(CompM, Rowv = FALSE,
 
 ### Dendrogramme sur distance khi-deux
 tCompM <- t(CompM)  # tableau transposé
-thc <- hclust(as.dist(distChi2(tCompM)), method = "ward.D")  # ici il n'y a pas de réinjection des poids des lignes & colonnes
+thc <- hclust(as.dist(distChi2(tCompM)), method = "ward.D2")  # ici il n'y a pas de réinjection des poids des lignes & colonnes
 plot(thc, hang = -1, cex = 0.6)
 
 ## Test de la proposition de R. Cura : http://rpubs.com/RobinC/AFC_CAH
