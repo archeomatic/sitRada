@@ -8,9 +8,11 @@ Visualisation des effets de sources sur des tableaux typo-chronologiques grâce 
 1) "Compiègne.csv" : La céramique du site des "Halettes" à Compiègne (Oise). Le tableau est extrait de Desachy 2004, p. 44
 - lignes : périodes d'occupation du site archéologique, construites selon les observations de terrain,
 - colonnes : types de céramique (16 types)
+
 2) "Data_PCR_Troyes.csv" : Données du PCR de La Plaine de Troyes. Le tableau est extrait du compte rendu provisoire de l'atelier SITRADA : Sanson, Riquier 2016 (actuellement p. 20)
 - lignes : 7 phases d'occupation du territoire de la Plaine de Troyes, construites selon les observations de terrain,
 - colonnes : 3 variables quantitatives (surface, nombre de structures, NR récipients céramiques)
+
 3) "Noyon_50ans_Fonctions.csv" : Données du travail de thèse de J. Gravier sur la ville de Noyon. Tableau de contingence du nombre d'entités urbaines qui existent par fonction urbaine dans le temps long de 1800 ans. Voir notamment Gravier 2015
 - lignes : pas de temps chronologique arbitraire de 50 ans ([1;50], [51;100], [101;150]... jusqu'à la fin du 18e s.),
 - colonnes : fonctions urbaines définies selon l'adapatation du thésaurus du CNAU
