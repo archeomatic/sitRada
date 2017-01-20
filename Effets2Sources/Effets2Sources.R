@@ -120,7 +120,6 @@ blob2 <- NoyonM %>%
   TabEcart() %>%
   dist() %>%
   hclust(method = "ward.D2")
-par(mfrow = c(1,2))
 plot(blob, hang = -1, cex = 0.6)
 plot(blob2, hang = -1, cex = 0.6)
 # il y en a (car beaucoup de lignes !), mais sont pas majeures
@@ -139,7 +138,7 @@ CompM %>%
 
 CompM %>%
   FrceVar() %>%
-  Standar() %>%
+  TabEcart() %>%
   heatmap.2(Rowv = FALSE, Colv = F,
             dendrogram = "none",
             col = my_palette,
@@ -157,6 +156,6 @@ blobC2 <- CompM %>%
   TabEcart() %>%
   dist() %>%
   hclust(method = "ward.D2")
-plot(blobC, hang = -1, cex = 0.6)
-plot(blobC2, hang = -1, cex = 0.6)
+plot(blob, hang = -1, cex = 0.6)
+plot(blob2, hang = -1, cex = 0.6)
 # avec 5 périodes d'occupations, peu de différences
