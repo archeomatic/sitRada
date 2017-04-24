@@ -2,7 +2,7 @@
 Visualisation de classes et des moyennes par classe des variables étudiées.
 
 # Données :
-"Noyon_50ans_Fonctions.csv" : Données du travail de thèse de J. Gravier sur la ville de Noyon. Tableau de contingence du nombre d'entités urbaines qui existent par fonction urbaine dans le temps long de 1800 ans. Voir notamment Gravier 2015
+"Noyon_2000_50ansEUDCDE.csv" : Données du travail de thèse de J. Gravier sur la ville de Noyon. Tableau de contingence du nombre d'entités urbaines qui existent par fonction urbaine dans le temps long de 1800 ans. Voir notamment Gravier 2015
 - lignes : pas de temps chronologique arbitraire de 50 ans ([1;50], [51;100], [101;150]... jusqu'à la fin du 18e s.),
 - colonnes : fonctions urbaines définies selon l'adapatation du thésaurus du CNAU
 
