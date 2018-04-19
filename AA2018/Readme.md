@@ -1,5 +1,6 @@
 ## Contexte
 Formation 14-15 mai 2018 à Tours : les ateliers archéomatiques
+
 Sylvain Badet, Amélie Laurent-Dehecq et Julie Gravier
 
 
@@ -21,17 +22,14 @@ Cette chaîne de traitement comprend plusieurs étapes qui seront présentées l
 
 
 ### Données
-Réalisation sur deux jeux de données.
+Réalisation sur deux jeux de données :
 
-* la céramique des Halettes à Compiègne
+**La céramique des Halettes à Compiègne** URL : https://raw.githubusercontent.com/JGravier/sitRada/master/Heatmap/Compiegne.csv
 
-URL : https://raw.githubusercontent.com/JGravier/sitRada/master/Heatmap/Compiegne.csv
-Extrait p. 44 de Desachy 2004 : DESACHY B., « Le sériographe EPPM: un outil informatisé de sériation graphique pour tableaux de comptages », Rev. archéologique Picardie [en ligne], 3/4, pp. 39-56, URL : http://www.persee.fr/web/revues/home/prescript/article/pica_0752-5656_2004_num_3_1_2396
+Extrait p. 44 de DESACHY B., 2004, « Le sériographe EPPM: un outil informatisé de sériation graphique pour tableaux de comptages », Rev. archéologique Picardie [en ligne], 3/4, pp. 39-56, URL : http://www.persee.fr/web/revues/home/prescript/article/pica_0752-5656_2004_num_3_1_2396
 
 
-* les objets historiques de Noyon
-
-[![DOI](https://zenodo.org/badge/doi/10.6084/m9.figshare.5630326.svg)](https://doi.org/10.6084/m9.figshare.5630326)
+**Les objets historiques de Noyon** [![DOI](https://zenodo.org/badge/doi/10.6084/m9.figshare.5630326.svg)](https://doi.org/10.6084/m9.figshare.5630326)
 
 
 ### Licence
