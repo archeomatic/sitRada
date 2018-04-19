@@ -15,7 +15,7 @@ Cette chaîne de traitement comprend plusieurs étapes qui seront présentées l
 * puis qualification et visualisation de ces nouvelles classes par rapport aux variables étudiées (moyenne des écarts par classe)
 
 
-## Données
+### Données
 Réalisation sur deux jeux de données.
 
 * la céramique des Halettes à Compiègne
@@ -28,7 +28,7 @@ Extrait p. 44 de Desachy 2004 : DESACHY B., « Le sériographe EPPM: un outil in
 
 [![DOI](https://zenodo.org/badge/doi/10.6084/m9.figshare.5630326.svg)](https://doi.org/10.6084/m9.figshare.5630326)
 
-## Réalisation
+### Réalisation
 R version 3.4.4 (2018-03-15) -- "Someone to Lean On"
 Copyright (C) 2018 The R Foundation for Statistical Computing
 Platform: x86_64-w64-mingw32/x64 (64-bit)
