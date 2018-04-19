@@ -1,7 +1,12 @@
 ## Contexte
 Formation 14-15 mai 2018 à Tours : les ateliers archéomatiques
+Sylvain Badet, Amélie Laurent-Dehecq et Julie Gravier
 
-## Objectifs  
+
+## Description
+Analyser et regrouper des périodes chronologiques : applications statistiques en archéologie avec R et Rstudio
+
+### Objectifs  
 L’analyse de données archéologiques dans le temps peut se faire à de nombreuses échelles et sur des éléments très différents (éléments matériels, objets historiques, sites archéologiques, etc.). À partir d’un tableau de contingence – comprenant le comptage des éléments étudiés par période chronologique (ligne) et par variable (colonne) – plusieurs méthodes statistiques peuvent être appliquées pour qualifier les périodes chronologiques selon les variables prises en considération. Plutôt que de se focaliser sur une seule méthode, nous en aborderons plusieurs car elles sont complémentaires et peuvent former une chaîne de traitement permettant d’explorer le jeu de données initial.
 
 Cette chaîne de traitement comprend plusieurs étapes qui seront présentées lors de l’atelier :
@@ -27,6 +32,10 @@ Extrait p. 44 de Desachy 2004 : DESACHY B., « Le sériographe EPPM: un outil in
 * les objets historiques de Noyon
 
 [![DOI](https://zenodo.org/badge/doi/10.6084/m9.figshare.5630326.svg)](https://doi.org/10.6084/m9.figshare.5630326)
+
+
+### Licence
+GNU AFFERO GENERAL PUBLIC LICENSE
 
 ### Réalisation
 R version 3.4.4 (2018-03-15) -- "Someone to Lean On"
