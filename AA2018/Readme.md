@@ -24,12 +24,13 @@ Cette chaîne de traitement comprend plusieurs étapes qui seront présentées l
 ### Données
 Réalisation sur deux jeux de données :
 
-**La céramique des Halettes à Compiègne** URL : https://raw.githubusercontent.com/JGravier/sitRada/master/Heatmap/Compiegne.csv
+**La céramique des Halettes à Compiègne**
 
 Extrait p. 44 de DESACHY B., 2004, « Le sériographe EPPM: un outil informatisé de sériation graphique pour tableaux de comptages », Rev. archéologique Picardie [en ligne], 3/4, pp. 39-56, URL : http://www.persee.fr/web/revues/home/prescript/article/pica_0752-5656_2004_num_3_1_2396
 
 
-**Les objets historiques de Noyon** [![DOI](https://zenodo.org/badge/doi/10.6084/m9.figshare.5630326.svg)](https://doi.org/10.6084/m9.figshare.5630326)
+**Les objets historiques de Noyon**
+[![DOI](https://zenodo.org/badge/doi/10.6084/m9.figshare.5630326.svg)](https://doi.org/10.6084/m9.figshare.5630326)
 
 
 ### Licence
