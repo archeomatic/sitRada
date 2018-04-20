@@ -3,7 +3,7 @@ Formation 14-15 mai 2018 à Tours : les ateliers archéomatiques, avec Sylvain B
 
 ### Citation
 
-Gravier. (2018, April). AA2018 : analyser et regrouper des périodes chronologiques en archéologie avec R (Version 1.0). [![DOI](https://zenodo.org/badge/doi/10.5072/zenodo.215414.svg)](http://doi.org/10.5072/zenodo.215414)
+Gravier. (2018, April). AA2018 : analyser et regrouper des périodes chronologiques en archéologie avec R (Version 1.0). [![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.1222190.svg)](http://doi.org/10.5281/zenodo.1222190)
 
 
 ## Description
