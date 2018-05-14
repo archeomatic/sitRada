@@ -118,26 +118,43 @@ On fait tout d'abord un test du khi-deux (hypothèse d'indépendance H0). Il est
 Compiegne %>%
   chisq.test()
 ```
+On calcule tout d'abord les écarts à l'indépendance. Le tableau d'indépendance est le tableau calculé à partir des sommes des lignes et des sommes des colonnes. Grâce aux marges, il est possible de calculer les effectifs théoriques des cases dans le cas où l'on serait dans une situation aléatoire (*cf.* le support .ppt).
+``` {r eval=T}
+Ecart_Compiegne <- TabEcart(Compiegne) # on applique une des fonctions réalisées pour le script
 
-On calcule ensuite les écarts au pourcentage moyen (*cf.* Desachy 2004)
+head(Ecart_Compiegne)
+```
+Ce tableau se lit : "par rapport à ce qui serait attendu dans une situation aléatoire, le Type A de céramique a un écart positif de 5783 g pour la période 5", ce qui revient à dire (de manière plus usuelle) que cet écart très positif correspond à un lien signifiant entre le type A de céramique et la période 5 de l'opération des Halettes.
+
+On peut ensuite visualiser les écarts sous la forme de *heatmap*.
+
+``` {r eval=T}
+my_palette2 <- colorRampPalette(c("#5e3c99", "#f7f7f7", "#e66101"))(n = 50)  # création de sa propre palette de couleur
+
+Ecart_CompiegneM <- as.matrix(Ecart_Compiegne) # nécessaire d'avoir des données sous forme de matrice pour fonction heatmap.2
+heatmap.2(Ecart_CompiegneM, Rowv = FALSE, Colv = FALSE, # on ne réordonne pas les lignes et les colonnes
+          col = my_palette2, # on utilise la palette de couleur que l'on a créé
+          denscol = "black",
+          dendrogram = 'none', # on ne veut ni de réordonnancement des lignes et des colonnes, ni de dendrogramme tracé
+          trace = 'none')
+```
+
+On calcule ensuite les écarts au pourcentage moyen pour rendre comparable les périodes chronologiques étudiées (*cf.* Desachy 2004)
 ``` {r eval=T}
 Ecart_PM_Compiegne <- EPM(Compiegne) # on applique une des fonctions réalisées pour le script
 
 head(Ecart_PM_Compiegne)
 ```
 
-Ce tableau se lit : "par rapport à ce qui serait attendu dans une situation aléatoire, le Type A de céramique a un écart positif de 20.53 % pour la période 5", ce qui revient à dire (de manière plus usuelle) que cet écart très positif correspond à un lien signifiant entre le type A de céramique et la période 5 de l'opération des Halettes.
-
-On peut ensuite visualiser les écarts au pourcentage moyen sous la forme de *heatmap*.
+Ce tableau se lit : par rapport à ce qui serait attendu dans une situation aléatoire, le Type A de céramique a un écart positif de 20.53 % pour la période 5.
 
 ``` {r eval=T}
-my_palette2 <- colorRampPalette(c("#5e3c99", "#f7f7f7", "#e66101"))(n = 50)  # création de sa propre palette de couleur
-
-Ecart_PM_CompiegneM <- as.matrix(Ecart_PM_Compiegne) # nécessaire d'avoir des données sous forme de matrice pour fonction heatmap.2
-heatmap.2(Ecart_PM_CompiegneM, Rowv = FALSE, Colv = FALSE, # on ne réordonne pas les lignes et les colonnes
-          col = my_palette2, # on utilise la palette de couleur que l'on a créé
+Ecart_PM_Compiegne %>%
+  as.matrix() %>%
+  heatmap.2(Rowv = FALSE, Colv = FALSE,
+          col = my_palette2,
           denscol = "black",
-          dendrogram = 'none', # on ne veut ni de réordonnancement des lignes et des colonnes, ni de dendrogramme tracé
+          dendrogram = 'none',
           trace = 'none')
 ```
 
