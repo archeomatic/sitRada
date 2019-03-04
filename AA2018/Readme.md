@@ -1,5 +1,5 @@
 ## Contexte
-Formation 14-15 mai 2018 à Tours : les ateliers archéomatiques, avec Sylvain Badet, Amélie Laurent-Dehecq et Julie Gravier
+Formation 14-15 mai 2018 à Tours : les ateliers archéomatiques, avec Sylvain Badey, Amélie Laurent-Dehecq et Julie Gravier
 
 ### Citation
 
